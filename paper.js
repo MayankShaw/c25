@@ -1,24 +1,19 @@
 class Paper{
-	constructor(x,y){
-		var options={
-			isStatic:false,
-			restitution:0.5,
-			friction:1.0,
-			density:1.5
-		}
-		this.body=Bodies.rectangle(x.y,50,50,options)
-		this.width=50;
-		this.high50;
-		this.image=loadImage("paper.png");
-		World.add(World,this.body);
-
-	}
-	display(){
-		var pos=this.body.position
-		pos.x=mouseX;
-		pos.y=mouseY;
-
-
-
-	}
+    constructor(x,y,width,height){
+        var paper_options ={
+            restitution: 0.3,
+            friction:5,
+            density:1
+        }
+		this.image=loadImage("paper.png")
+        this.paper=Bodies.rectangle(x,y,width,height,paper_options);
+        World.add(world,this.box);
+this.width=width
+this.height=height
+    }
+    display () {
+        fill("black");
+        rectMode(CENTER);
+        rect(this.paper.position.x,this.paper.position.y,this.width,this.height);
+    }
 }
